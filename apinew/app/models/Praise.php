@@ -50,21 +50,21 @@ class Praise extends \Phalcon\Mvc\Model
     public function initialize()
     {
         date_default_timezone_set('Asia/Shanghai');
-         $this->addBehavior(
+        $this->addBehavior(
             new Timestampable(
                 array(
                     'beforeSave' => array(
-                    'field'    => 'updateTime',
-                    'format' => 'Y-m-d H:i:s'
+                        'field' => 'updateTime',
+                        'format' => 'Y-m-d H:i:s'
                     )
-                    
+
                 )
             )
         );
-            
+
         $this->setConnectionService('mysql_ranking');
     }
-   
+
     /**
      * Returns table name mapped in the model.
      *
@@ -96,5 +96,11 @@ class Praise extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
+
+    public function  findByguid($parameters = null)
+    {
+        return parent::findFirst($parameters);
+    }
+
 
 }

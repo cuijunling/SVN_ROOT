@@ -1,0 +1,112 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="page-header">
+    <h1>
+        Search mid_lawyer
+    </h1>
+    <p>
+        <?php echo $this->tag->linkTo(array("mid_lawyer/new", "Create mid_lawyer")) ?>
+    </p>
+</div>
+
+<?php echo $this->getContent() ?>
+
+<?php
+    echo $this->tag->form(
+        array(
+            "mid_lawyer/search",
+            "autocomplete" => "off",
+            "class" => "form-horizontal"
+        )
+    );
+?>
+
+<div class="form-group">
+    <label for="fieldId" class="col-sm-2 control-label">Id</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("id", "type" => "number", "class" => "form-control", "id" => "fieldId")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldGuid" class="col-sm-2 control-label">Guid</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("guid", "size" => 30, "class" => "form-control", "id" => "fieldGuid")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldBasicinfo" class="col-sm-2 control-label">BasicInfo</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(array("basicInfo", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldBasicinfo")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldBasicinfoEn" class="col-sm-2 control-label">BasicInfo Of En</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(array("basicInfo_en", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldBasicinfoEn")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldInfo" class="col-sm-2 control-label">Info</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(array("info", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldInfo")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldInfoEn" class="col-sm-2 control-label">Info Of En</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(array("info_en", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldInfoEn")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldFlag" class="col-sm-2 control-label">Flag</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("flag", "type" => "number", "class" => "form-control", "id" => "fieldFlag")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldSign" class="col-sm-2 control-label">Sign</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("sign", "size" => 30, "class" => "form-control", "id" => "fieldSign")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldSignEn" class="col-sm-2 control-label">Sign Of En</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("sign_en", "size" => 30, "class" => "form-control", "id" => "fieldSignEn")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldUpdatetime" class="col-sm-2 control-label">Updatetime</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("updatetime", "size" => 30, "class" => "form-control", "id" => "fieldUpdatetime")) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldUpdated" class="col-sm-2 control-label">Updated</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("updated", "type" => "number", "class" => "form-control", "id" => "fieldUpdated")) ?>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->tag->submitButton(array("Search", "class" => "btn btn-default")) ?>
+    </div>
+</div>
+
+<?php echo $this->tag->endForm(); ?>

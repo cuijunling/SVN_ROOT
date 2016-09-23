@@ -1,0 +1,83 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<?php use Phalcon\Tag; ?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(array("mid_lawfirm/index", "Go Back")); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(array("mid_lawfirm/new", "Create ")); ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>Search result</h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+            <th>Guid</th>
+            <th>BasicInfo</th>
+            <th>BasicInfo Of En</th>
+            <th>AlbAwards</th>
+            <th>AlbAwards Of En</th>
+            <th>Flag</th>
+            <th>Sign</th>
+            <th>Sign Of En</th>
+            <th>Updatetime</th>
+            <th>Updated</th>
+
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($page->items as $mid_lawfirm): ?>
+            <tr>
+                <td><?php echo $mid_lawfirm->id ?></td>
+            <td><?php echo $mid_lawfirm->guid ?></td>
+            <td><?php echo $mid_lawfirm->basicInfo ?></td>
+            <td><?php echo $mid_lawfirm->basicInfo_en ?></td>
+            <td><?php echo $mid_lawfirm->albAwards ?></td>
+            <td><?php echo $mid_lawfirm->albAwards_en ?></td>
+            <td><?php echo $mid_lawfirm->flag ?></td>
+            <td><?php echo $mid_lawfirm->sign ?></td>
+            <td><?php echo $mid_lawfirm->sign_en ?></td>
+            <td><?php echo $mid_lawfirm->updatetime ?></td>
+            <td><?php echo $mid_lawfirm->updated ?></td>
+
+                <td><?php echo $this->tag->linkTo(array("mid_lawfirm/edit/" . $mid_lawfirm->id, "Edit")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("mid_lawfirm/delete/" . $mid_lawfirm->id, "Delete")); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <p class="pagination" style="line-height: 1.42857;padding: 6px 12px;">
+            <?php echo $page->current, "/", $page->total_pages ?>
+        </p>
+    </div>
+    <div class="col-sm-11">
+        <nav>
+            <ul class="pagination">
+                <li><?php echo $this->tag->linkTo("mid_lawfirm/search", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("mid_lawfirm/search?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("mid_lawfirm/search?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("mid_lawfirm/search?page=" . $page->last, "Last") ?></li>
+            </ul>
+        </nav>
+    </div>
+</div>
